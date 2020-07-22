@@ -1,165 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bienvenido a  Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.8.2/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.8.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.8.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.8.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.8.2/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="img/h.png">
+    <title>Inicio</title>
+</head>
 
-    <style media="screen">
-      body { background: rgba(66, 109, 138, 0.753); color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #00d9ffb0; }
-      }
-      #infoadicional { 
-  width: 280px; 
-  padding: 20px; 
- 
-background-color: #B6E4F6;   
-  border-radius: 10px; 
-} 
-#infoadicional h1 { 
-  font: bold 18px Times New Roman,Arial, sans-serif; 
-  color: #333333; 
-  margin-bottom: 15px; 
-}
-article { 
-  position: relative; 
-  padding: 0px 40px 20px 40px; 
-} 
-article time { 
-  display: block; 
-  position: absolute; 
-  top: -5px; 
-  left: -70px; 
-  width: 80px; 
-  padding: 15px 5px; 
-  background-color: #094660; 
-  box-shadow: 3px 3px 5px rgba(100, 100, 100, 0.7); 
-  border-radius: 5px; 
-} 
-.numerodia { 
-  font: bold 36px Verdana, sans-serif; 
-  color: #FFFFFF; 
-    text-align: center; 
-} 
-.nombredia { 
-  font: 12px Verdana, sans-serif; 
-  color: #FFFFFF; 
-  text-align: center; 
-} 
-article h1 { 
-  margin-bottom: 5px; 
-  font: bold 30px Georgia, sans-serif; 
-} 
-article p { 
-  font: 18px Georgia, sans-serif; 
-} 
-figure { 
-  margin: 10px 0px; 
-} 
-figure img { 
-  max-width: 98%; 
-  padding: 1%; 
-  border: 1px solid; 
-} 
-#pielogo { 
-  display: flex; 
-  justify-content: center; 
-  width: 96%; 
-  padding: 2%; 
-  background-color: #0F76A0; 
-} 
-#pielogo > div { 
-  display: flex; 
-  flex: 1; 
-  max-width: 960px; 
-  background-color: #9FC8D9; 
-  border-radius: 10px; 
-} 
-.seccionpie { 
-  flex: 1; 
-  padding: 25px; 
-} 
+<body>
+    <!-- CABECERA/MENU -->
+    <header>
+        <div class='header-barra'>
+            <div class='navegacion'>
+                <div class="MenuOpen">
+                    <a href="#"><i class="fas fa-sun"></i></a>
+                </div>
+                <div class="MenuHover">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="stream.html">Plataforma de Streams</a>
+                            </li>
+                            <li>
+                                <a href="chat.html">Chat</a>
+                            </li>
+                            <li>
+                                <a href="#">Base de datos</a>
+                            </li>
+                            <li>
+                                <a href="#">Otros</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
 
-.seccionpie p { 
-  margin-top: 5px; 
-} 
-.seccionpie a { 
-  font: bold 16px Times New Roman,Arial, sans-serif; 
-  color: #666666; 
-  text-decoration: none; 
-} 
+    <!-- SCRIPT -->
+    <script src="js/main.js"></script>
+</body>
 
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Bienvenidos!</h2>
-      <h1>Firebase Hosting Setup Completado</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-  <footer id="pielogo"> 
-
-    <div> 
-      <section class="seccionpie"> 
-        <h1>Sitio Web</h1> 
-        <p><a href="index.html">5612801178</a></p> 
-        <p><a href="fotos.html">HTML</a></p> 
-        <p><a href="videos.html">CSS</a></p> 
-      </section> 
-      <section class="seccionpie"> 
-        <h1>Ayuda</h1> 
-        <p><a href="contacto.html"></a></p> 
-      </section> 
-      <section class="seccionpie"> 
-        <address>Mexico,Nezahualcoyotl</address> 
-        <address>GONZALEZ PEREZ HUGO ALBERTO IC42</address> 
-        <small>&copy; Derechos Reservados 2020</small> 
-      </section> 
-    </div> 
-  </footer> 
 </html>
