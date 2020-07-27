@@ -14,7 +14,7 @@ html {
 header {
     background-image: url("https://www.charlieputh.com/sites/g/files/g2000007086/f/202006/bgcharlieputh.png?itok=8xl8vmLM.png");
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -33,7 +33,7 @@ div.MenuOpen {
     background-color: transparent;
     z-index: 2;
     position: relative;
-    background-color:#04bad1;
+    background-color:#0e738f;
 }
 
 @media (max-width: 1000px) {
@@ -55,7 +55,7 @@ div.MenuOpen {
 }
 
 div.MenuOpen i {
-    color: #ffffff;
+    color: #f68bae;
     cursor: pointer;
     font-size: 30px;
     padding: 15px 0;
@@ -94,7 +94,7 @@ div.MenuHover {
 
 @media (max-width: 480px) {
     div.MenuHover {
-        clip-path: circle(100% at 50% 3%);
+        clip-path: circle(150% at 50% 3%);
     }
 }
 
@@ -152,7 +152,7 @@ div.MenuHover ul li a:hover {
         clip-path: circle(8% at 50% -3%);
         background-color:#04bad1;
     }
-    100% {
+    150% {
         clip-path: circle(100% at 50% 0%);
         background-color:#04bad1;
     }
@@ -163,7 +163,7 @@ div.MenuHover ul li a:hover {
         clip-path: circle(100% at 50% 0%);
         background-color:#04bad1;
     }
-    100% {
+    150% {
         clip-path: circle(8% at 50% -3%);
         background-color:#04bad1;
     }

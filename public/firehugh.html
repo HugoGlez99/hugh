@@ -1,0 +1,307 @@
+<<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/h.png">
+     <script
+     src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+   <script
+     src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDUVlqnJmohBzxAO61AEtIoysHzBJHArxo",
+    authDomain: "firehughbd.firebaseapp.com",
+    databaseURL: "https://firehughbd.firebaseio.com",
+    projectId: "firehughbd",
+    storageBucket: "firehughbd.appspot.com",
+    messagingSenderId: "732533415975",
+    appId: "1:732533415975:web:54c89b93c878cdef846e02"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+      <style >
+html{
+    font-size:10px;
+    font-family: 'Lato', sans-serif;
+}
+body{
+    background-color: #9AD1ED;
+}
+.container{
+    max-width: 450px;
+    height: auto;
+    background-color: #EFEFEF;
+    margin:5% auto;
+    padding-bottom: 1rem;
+}
+.form_top{
+    max-width: 500px;
+    height: auto;
+    background-color: #EFEFEF;
+    margin:10px auto;
+    padding-bottom: 1rem;
+}
+.form_top{
+    width: 100%;
+    text-align: center;
+    padding: 2rem 3 1rem;
+    border-top: solid 4rem #F39B53;
+    margin-bottom: 1rem;
+}
+.form_top h2{
+    font-weight: bold;
+    color: #CAC8C8;
+    font-size: 20px;
+}
+.h3{
+    font-size:20px;
+    font-family: 'Lato', sans-serif;
+
+}
+h2 span{
+    color:#F39b53;
+}
+.form_reg{
+    padding: 0 2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input{
+    background-color: #EFEFEF;
+    padding: 2rem;
+    margin: auto;
+    border: none;
+    border-bottom:solid #CAC8C8 .2rem;
+   
+}
+.input:focus{
+    border-bottom: solid #F39B53 .2rem;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#F39B53 ;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+    
+    font-size: 18px;
+}
+.btn__submit, .btn__reset {
+	width: 40%;
+	border-bottom: 10;
+	background-color: #31B1E5;
+	color: rgb(0, 0, 0);
+}
+.btn__reset {
+	background-color: #EDA135;
+}
+
+.btn__submit:hover {
+	background-color: #4C9ED9;
+}
+
+.btn__reset:hover{
+	background-color: #FA9535;
+}
+.btn__nomb, .btn__apell {
+	width: 40%;
+	border-bottom: 4;
+	background-color: #31B1E5;
+	color: rgb(0, 0, 0);
+}
+.btn__apell {
+	background-color: #fa9e35;
+}
+
+.btn__nomb:hover {
+	background-color: #4C9ED9;
+}
+
+.btn__apell:hover{
+	background-color: #fa9e35;
+}
+      </style>
+      <title>Servicio Social</title>
+    </head>
+<body>
+    <div class="container">
+        <div class="form_top">
+            <h2><span>Servicio Social</span></h2>
+        </div>
+        <form class="form_reg" action="javascript:guarda()">
+            <header> 
+                <center>
+                <button class="btn__submit" id="agregar" type="button" onclick="alta();">Agregar</button>
+                <button class="btn__submit" type="submit">Guardar</button>
+                <button class="btn__reset"  id="eliminar" type="button"
+                  onclick="elimina();">Eliminar</button>
+                </center>
+              </header>
+            <input class="input" id="nombre" type="text" placeholder="Nombre" required>
+            <input class="input" id="apellido" type="text" placeholder="Apellido" required>
+            <br>
+            <br>
+           <tr>
+               <td>
+            <ul id="lista">
+                <li><progress max="100">Cargando…</progress></li>
+              </ul>
+            </td>
+              
+            </tr>
+        
+        <center>
+        <div class="footer">
+            <p>Copyright &copy; 2020 Hugo Alberto Gonzalez Perez.</p>
+          </div>
+    </center>
+    </div>
+
+    <script>
+     
+      let id = "";
+      const firestore = firebase.firestore();
+      muestraLista();
+      alta();
+
+      function muestraLista() {
+        
+          firestore.collection("ServicioSocial").orderBy("SC_NOMBRE").onSnapshot
+          firestore.collection("ServicioSocial").orderBy("SC_APELLIDO").onSnapshot(
+            
+           
+              documentos => {
+                  let inner = "";
+                  documentos.forEach(doc =>
+                      inner += /* html */
+                      `
+                     <center>
+                    <button class="btn__nomb" type=button onclick="muestra('${cod(doc.id)}')">
+                    ${cod(doc.data().SC_NOMBRE)} 
+                    </button>
+                    <button  class="btn__apell" type=button onclick="muestra('${cod(doc.id)}')">
+                    ${cod(doc.data().SC_APELLIDO)}
+                </button>
+                <br>
+                </center>
+                <br>
+                `);
+                  lista.innerHTML = inner;
+              },
+              e => {
+                  procesaError(e);
+                  muestraLista();
+                        }
+                    );
+                }
+
+                function alta() {
+                    agregar.disabled = true;
+                    eliminar.disabled = true; 
+                    id = ""; 
+                    nombre.value = ""; 
+                    apellido.value="";
+                    
+                    
+                }
+      
+      async function muestra(idSel) {
+          try {
+              agregar.disabled = false; 
+              eliminar.disabled = false; 
+          
+              let doc = await firestore.collection("ServicioSocial").doc(idSel).get();
+              if (doc.exists) {
+                  id = doc.id;
+                  let data = doc.data();
+                  nombre.value = data.SC_NOMBRE || "";
+                  apellido.value = data.SC_APELLIDO || "";
+               
+                
+
+              } else {
+                  alert(" No registrado.");
+                  alta();
+                        }
+                    } catch (e) {
+                        procesaError(e);
+                    }
+                }
+                async function guarda() {
+                    try {
+                        const modelo = {
+                            SC_NOMBRE: nombre.value.trim(),
+                            SC_APELLIDO:apellido.value.trim()
+                            
+                        };
+                        if (id) {
+                        
+                            await firestore.collection("ServicioSocial").doc(id).set(modelo);
+                        } else {
+                        
+                            await firestore.collection("ServicioSocial").add(modelo);
+                        }
+                        alta();
+                    } catch (e) {
+                        procesaError(e);
+                    }
+                }
+                async function elimina() {
+                    try {
+                    
+                        await firestore.collection("ServicioSocial").doc(id).delete();
+                        alta();
+                    } catch (e) {
+                        procesaError(e);
+                    }
+                }
+
+                function procesaError(e) {
+                    console.log(e);
+                    alert(e.message);
+                }
+                
+      function cod(valor) {
+          return (valor || "").toString()
+              .replace(/[<>"']/g,
+                  /** @param {string} letra */
+                  letra => {
+                      switch (letra) {
+                          case "<":
+                              return "&lt;";
+                          case ">":
+                              return "&gt;";
+                          case '"':
+                              return "&quot;";
+                          case "'":
+                              return "&#039;";
+                          default:
+                              return letra;
+                      }
+                  });
+      }
+  </script>
+  <center>
+  <section class="form-register1" >
+    <p><a class="botons" href="index.html">Volver</a></p>
+  <br>
+</section>
+</center>
+</body>
+<anside>
+    <section class="form-register2">
+        <div class="footer">
+          <mi-footer></mi-footer>
+        </div>
+      </section>
+    </anside>
+<html>>
